@@ -11,12 +11,12 @@ class EmailsController{
     try {
       const result = await sendEmailContact(name, email, text);
       if (result != null) {
-        return response.send(200, { status: 'Ok' });
+        return response.status(200).send({ status: 'Ok' });
       }
-      response.send(400, { error: 'Email not send' });
+      response.status(400).send({ error: 'Email not send' });
     }
     catch {
-      response.send(400, { error: 'Email not send' });
+      response.status(400).send({ error: 'Email not send' });
     }
 
   }
